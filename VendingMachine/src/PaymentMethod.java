@@ -4,7 +4,7 @@
 
 public interface PaymentMethod 
 {
-    boolean ProcessPayment(double amount);
-    String CashPayment();
-    double AvailableBalance();
+    public boolean ProcessPayment(double amount);
+    public String PaymentType();
+    public double AvailableBalance();
 }

@@ -2,6 +2,8 @@
 // Date: 5/6/2026
 // Assignment: Assignment 10 - Vending Machine
 
+import java.util.Scanner;
+
 public class VendingMachine 
 {
     private String[] _itemNames;
@@ -51,6 +53,29 @@ public class VendingMachine
             }
             System.out.println("===========================");
 
+        }
+    }
+
+    public void PurchaseItem(int choice, CashPayment payment) 
+    {
+        double amount = _itemPrices[choice - 1];
+        String name = _itemNames[choice - 1];
+        String payType = payment.PaymentType();
+        int qty = _itemQuantities[choice - 1];
+        
+        if(qty == 0)
+        {
+            System.out.println(name + " is sold out.");
+        }
+        else if(payment.ProcessPayment(amount))
+        {
+          qty--; 
+          System.out.printf("Purchased: %s for $%.2f using %s%n", name, amount, payType);
+        }
+        else
+        {
+            System.out.println("Invalid selection.");
+            return;
         }
     }
 }

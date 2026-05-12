@@ -30,7 +30,27 @@ public class VendingMachine
             _itemPrices[_itemCount] = price;
             _itemQuantities[_itemCount] = quantity;
             _itemCount++;
-            System.out.printf("Stocked: %s ($%.2f) x %dn", name, price, quantity);
+            System.out.printf("Stocked: %s ($%.2f) x %d%n", name, price, quantity);
+        }
+    }
+
+    public void DisplayItems()
+    {
+        if(_itemCount == 0)
+            System.out.println("Machine is empty.");
+        else
+        {
+            System.out.println("===== VENDING MACHINE =====");
+            for(int i = 0; i < _itemCount; i++)
+            {
+                if(_itemQuantities[i] > 0)
+                    System.out.printf((i + 1) + ". %s - $%.2f (%d left)%n", _itemNames[i], _itemPrices[i], _itemQuantities[i]);
+                else
+                    System.out.printf((i + 1) + ". %s - $%.2f (SOLD OUT)%n", _itemNames[i], _itemPrices[i]);
+   
+            }
+            System.out.println("===========================");
+
         }
     }
 }

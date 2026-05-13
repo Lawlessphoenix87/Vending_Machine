@@ -2,7 +2,7 @@
 // Date: 5/6/2026
 // Assignment: Assignment 10 - Vending Machine
 
-import java.util.Scanner;
+
 
 public class VendingMachine 
 {
@@ -22,6 +22,17 @@ public class VendingMachine
         _itemCount = 0;
     }
 
+
+    //Accessors
+    public int GetItemCount()
+    {
+        return _itemCount;
+    }
+
+
+
+
+    //    ======== METHOD LIBRARY ========
     public void StockItem(String name, double price, int quantity)
     {
         if(_itemCount >= _maxItems)
@@ -69,7 +80,7 @@ public class VendingMachine
         }
         else if(payment.ProcessPayment(amount))
         {
-          qty--; 
+          _itemQuantities[choice - 1]--; 
           System.out.printf("Purchased: %s for $%.2f using %s%n", name, amount, payType);
         }
         else
@@ -78,4 +89,6 @@ public class VendingMachine
             return;
         }
     }
+
+    
 }
